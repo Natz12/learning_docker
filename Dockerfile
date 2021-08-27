@@ -29,6 +29,8 @@ ENV PATH=$CONDA_DIR/envs/test_env/bin:$PATH
 
 # Copy Python scripts
 COPY example_time.py .
+COPY example_time2.py .
+
 
 # Create container entry point (Where it will start every time we run teh container)
 # ENTRYPOINT /bin/bash --login -c "conda activate test_env && python3 example_time.py"

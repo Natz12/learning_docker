@@ -3,7 +3,7 @@ services:
   example:
     build: .
     image: "learningdocker:1"
-    container_name: example1
+    container_name: example_1
     volumes:
       - type: bind
         source: ./data
@@ -13,7 +13,7 @@ services:
   example_2:
     build: .
     image: "learningdocker:1"
-    container_name: example2
+    container_name: example_2
     volumes:
       - type: bind
         source: ./data
