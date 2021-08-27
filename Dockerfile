@@ -31,7 +31,7 @@ ENV PATH=$CONDA_DIR/envs/test_env/bin:$PATH
 COPY example_time.py .
 
 # Create container entry point (Where it will start every time we run teh container)
-ENTRYPOINT /bin/bash --login -c "conda activate test_env && python3 example_time.py"
+# ENTRYPOINT /bin/bash --login -c "conda activate test_env && python3 example_time.py"
 
 # Another option is to use conda run but its use is discourage as it is still in development.
 # ENTRYPOINT [ "conda", "run", "--no-capture-output", "-n", "test_env", "python3", "example_time.py"]
