@@ -20,19 +20,4 @@ services:
         target: /media/data
     command: >
       sh -c "conda run --no-capture-output -n test_env python example_time2.py"
-    
-# deploy:
-#   resources:
-#     reservations:
-#       devices:
-#       - capabilities: [gpu]
-# Test if the GPU is correctly configured
-  # test:
-  #   image: tensorflow/tensorflow:latest-gpu
-  #   command: python -c "import tensorflow as tf;tf.test.gpu_device_name()"
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #         - capabilities: [gpu]
 
