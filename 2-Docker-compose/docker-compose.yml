@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  example:
+    build: .
+    image: "learningdocker:1"
+    container_name: example_1
+    volumes:
+      - type: bind
+        source: ./data
+        target: /media/data
+    command: >
+      sh -c "conda run --no-capture-output -n test_env python example_time.py && tail -f /dev/null"
+  example_2:
+    build: .
+    image: "learningdocker:1"
+    container_name: example_2
+    volumes:
+      - type: bind
+        source: ./data
+        target: /media/data
+    command: >
+      sh -c "conda run --no-capture-output -n test_env python example_time2.py"
+
