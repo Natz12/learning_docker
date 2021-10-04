@@ -12,7 +12,7 @@ services:
       sh -c "conda run --no-capture-output -n test_env python example_time.py"
   example_2:
     build: .
-    image: "learningdocker:1"
+    image: "learningdocker:2"
     container_name: example_2
     volumes:
       - type: bind
