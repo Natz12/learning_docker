@@ -1,0 +1,37 @@
+version: "3.0"
+services:
+  example:
+    build: .
+    image: "learningdocker:3"
+    container_name: example_gpu
+    volumes:
+      - type: bind
+        source: ./data
+        target: /media/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: >
+      sh -c "nvidia-smi && conda run --no-capture-output -n test_env python example_time_gpu.py && tail -f /dev/null"
+  example_2:
+    build: .
+    image: "learningdocker:3"
+    container_name: example_gpu2
+    volumes:
+      - type: bind
+        source: ./data
+        target: /media/data
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: >
+      sh -c "conda run --no-capture-output -n test_env python example_time_gpu2.py && tail -f /dev/null"
+
