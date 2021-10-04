@@ -130,7 +130,10 @@ dmypy.json
 .DS_Store
 
 Auth/
-data/
+# data/
 logs/
 test/
 .aws/
+cudnn-10.1-linux-x64-v7.6.5.32.tgz
+cuda/include/cudnn.h
+cuda/NVIDIA_SLA_cuDNN_Support.txt
