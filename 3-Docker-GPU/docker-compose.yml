@@ -7,7 +7,7 @@ services:
     volumes:
       - type: bind
         source: ./data
-        target: /media/data
+        target: /maindir/data
     deploy:
       resources:
         reservations:
@@ -24,7 +24,7 @@ services:
     volumes:
       - type: bind
         source: ./data
-        target: /media/data
+        target: /maindir/data
     deploy:
       resources:
         reservations:

@@ -7,7 +7,7 @@ services:
     volumes:
       - type: bind
         source: ./data
-        target: /media/data
+        target: /maindir/data
     command: >
       sh -c "conda run --no-capture-output -n test_env python example_time.py"
   example_2:
@@ -17,7 +17,7 @@ services:
     volumes:
       - type: bind
         source: ./data
-        target: /media/data
+        target: /maindir/data
     command: >
       sh -c "conda run --no-capture-output -n test_env python example_time2.py && tail -f /dev/null"
 

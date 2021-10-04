@@ -36,7 +36,7 @@ RUN  conda update conda \
 
 USER $USER
 
-WORKDIR /data
+WORKDIR /maindir
 
 # Copy conda env
 COPY env.yml .
