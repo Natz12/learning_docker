@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+# Based on https://docs.docker.com/config/containers/resource_constraints/#gpu
+
 echo "Enabling GPU for Docker"
 # Pre installation of nvidia-container-runtime
 # https://docs.docker.com/config/containers/resource_constraints/#gpu
@@ -23,6 +25,7 @@ then
     sudo systemctl daemon-reload
     sudo systemctl restart docker
     docker run -it --rm --gpus all ubuntu nvidia-smi
+    echo "success: nvidia-container-runtime intallation succesful"
 else
     echo "nvidia-container-runtime installation was unsuccessful"
 fi
