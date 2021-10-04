@@ -50,6 +50,11 @@ RUN echo ". $CONDA_DIR/etc/profile.d/conda.sh" >> ~/.profile
 # Make non-activate conda commands available
 ENV PATH=$CONDA_DIR/envs/test_env/bin:$PATH
 
+# Start bash with conda env
+RUN echo "conda activate test_env" >> ~/.bashrc
+ENV PATH /opt/conda/envs/test_env/bin:$PATH
+ENV CONDA_DEFAULT_ENV $test_env
+
 # Copy Python scripts
 COPY example_time_gpu.py .
 COPY example_time_gpu2.py .

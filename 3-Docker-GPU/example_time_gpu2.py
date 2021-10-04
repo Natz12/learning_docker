@@ -9,7 +9,7 @@ for i in range(5):
     print(now, " yay")
     with open(text_path, "a") as text_file:
         text_file.write(str(now)+'\n')
-        text_file.write(str(torch.cuda.device_count())+str(torch.device('cuda' if torch.cuda.is_available() else 'cpu')))
+        text_file.write('device_count:'+str(torch.cuda.device_count())+' '+str(torch.device('cuda' if torch.cuda.is_available() else 'cpu'))+'\n')
     time.sleep(5)
     
 print('END')
