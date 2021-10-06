@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+MINICONDA_VERSION=latest
+CONDA_DIR=$HOME/miniconda3
+wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-$MINICONDA_VERSION-Linux-x86_64.sh -O ~/miniconda.sh && \
+chmod +x ~/miniconda.sh && \
+~/miniconda.sh -b -p $CONDA_DIR && \
+rm ~/miniconda.sh
+
+# Make non-activate conda commands available
+PATH=$CONDA_DIR/bin:$PATH
+# Make conda activate command available from /bin/bash --login shells
+echo ". $CONDA_DIR/etc/profile.d/conda.sh" >> ~/.profile
+# Make conda activate command available from /bin/bash --interative shells
+conda init bash
+
+conda update conda -y \
+    && conda clean --all --yes
+
+## To uninstall
+# rm -rf ~/miniconda3
+# rm -rf ~/.condarc ~/.conda ~/.continuum
+## Remove path from ~/.profile
