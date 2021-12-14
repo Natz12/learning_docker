@@ -1,0 +1,43 @@
+#!/usr/bin/bash
+
+# make files executable
+chmod +x 0-Utils/install-miniconda
+chmod +x 0-Utils/install-nvidia-drivers
+chmod +x 0-Utils/install-docker
+chmod +x 0-Utils/docker-post-installation
+chmod +x 0-Utils/GPU-enable-for-Docker
+
+# install miniconda
+0-Utils/install-miniconda
+
+# install nvidia drivers
+0-Utils/install-nvidia-drivers
+
+# install docker and post installation process
+0-Utils/install-docker
+0-Utils/docker-post-installation
+
+# install docker-compose
+0-Utils/install-docker-compose
+
+# Enable GPU usage in docker
+0-Utils/GPU-enable-for-Docker
+
+# Change directory owner and group to avoid having to use sudo for everything
+#  Assuming directory is /media Change it if required
+
+cd /media
+sudo mkdir data-01
+sudo chgrp ubuntu data-01
+sudo chown ubuntu data-01
+chmod g+s .
+
+# install aws
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+rm -rf ./aws
+rm -rf ./awscliv2.zip 
+# check installation
+aws --version

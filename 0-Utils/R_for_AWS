@@ -1,0 +1,45 @@
+sudo apt-get install -y libssl-dev
+
+sudo apt-get update -y
+
+## Install Home-brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/home/ubuntu/.linuxbrew/bin/brew shellenv)"' >> /home/ubuntu/.profile
+    eval "$(/home/ubuntu/.linuxbrew/bin/brew shellenv)"
+
+#https://github.com/r-spatial/sf/issues/1316
+          brew install proj
+          brew install geos
+          brew install gdal
+
+
+# Gdal error:
+# The Meson build system
+# Version: 0.60.0
+# Source dir: /tmp/mesa-20211030-3368242-1x3043i/mesa-21.2.4
+# Build dir: /tmp/mesa-20211030-3368242-1x3043i/mesa-21.2.4/build
+# Build type: native build
+# Program python found: YES (/home/ubuntu/.linuxbrew/Cellar/mesa/21.2.4/libexec/venv/bin/python)
+
+# ../meson.build:21:0: ERROR: Unknown options: "xvmc"
+
+# A full log can be found at /tmp/mesa-20211030-3368242-1x3043i/mesa-21.2.4/build/meson-logs/meson-log.txt
+
+# READ THIS: https://docs.brew.sh/Troubleshooting
+
+# These open issues may also help:
+# Invalid meson arg in mesa formula https://github.com/Homebrew/homebrew-core/issues/88254
+
+
+## DO
+echo "deb http://cran.rstudio.com/R/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+apt-get update
+apt-get install r-base
+## Then remove lines from /etc/apt/sources.list
+
+
+# to get gal requirement
+sudo apt install libgdal-dev 
+
+sudo apt-get install libxml2-dev
