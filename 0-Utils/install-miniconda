@@ -16,6 +16,8 @@ conda init bash
 
 conda update conda -y \
     && conda clean --all --yes
+    
+source ~/.profile
 
 ## To uninstall
 # rm -rf ~/miniconda3
